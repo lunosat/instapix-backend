@@ -14,6 +14,7 @@ import dotenv from "dotenv";
 import genPass from "./helpers/genPass.js";
 import isValidEmail from "./helpers/isValidEmail.js";
 import https from 'https'
+import fs from 'fs'
 dotenv.config();
 
 const standardPass = process.env.GENERIC_PASS;

@@ -13,6 +13,7 @@ import {
 import dotenv from "dotenv";
 import genPass from "./helpers/genPass.js";
 import isValidEmail from "./helpers/isValidEmail.js";
+import https from 'https'
 dotenv.config();
 
 const standardPass = process.env.GENERIC_PASS;
@@ -135,4 +136,13 @@ app.get("/posts", async (req, res) => {
   }
 });
 
-app.listen(3000, () => console.log("Servidor rodando na porta 3000"));
+const options = {
+  key: fs.readFileSync('./private.key'),
+  cert: fs.readFileSync('./certificate.crt')
+};
+
+https.createServer(options, app).listen(process.env.PORT, () => {
+  console.log('Server HTTPS started on port:', process.env.PORT)
+})
+
+//app.listen(3000, () => console.log("Servidor rodando na porta 3000"));

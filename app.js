@@ -31,6 +31,9 @@ app.use(function (req, res, next) {
 });
 
 // Criar um novo usuário
+app.get("/", (req, res) => {
+  res.send('<h1>Hello</h1>')
+})
 app.post("/createUser", async (req, res) => {
   try {
     const { username, email, password } = req.body;

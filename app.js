@@ -22,12 +22,8 @@ const standardPass = process.env.GENERIC_PASS;
 const app = express();
 app.use(express.json());
 
-const corsOptions = {
-  origin: "*",
-  optionsSuccessStatus: 200, //T1KMc
-};
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 // Criar um novo usuário
 app.post("/createUser", async (req, res) => {

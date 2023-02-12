@@ -23,7 +23,9 @@ const app = express();
 app.use(express.json());
 
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://instapix-blond.vercel.app'
+}));
 
 // Criar um novo usuário
 app.post("/createUser", async (req, res) => {

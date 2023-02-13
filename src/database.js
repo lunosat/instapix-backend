@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
   email: String,
   balance: Number,
   password: String,
-  likedPosts: Array,
+  likedPosts: [String],
 });
 
 const postSchema = new mongoose.Schema({

@@ -145,8 +145,8 @@ const options = {
   passphrase: '12345678'
 };
 
-https.createServer(options, app).listen(process.env.PORT, () => {
+/* https.createServer(options, app).listen(process.env.PORT, () => {
   console.log('Server HTTPS started on port:', process.env.PORT)
-})
+}) */
 
-//app.listen(3000, () => console.log("Servidor rodando na porta 3000"));
+app.listen(3000, () => console.log("Servidor rodando na porta 3000"));

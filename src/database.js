@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://Akila:4553b8ef@cluster0.cde7m.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true });
+mongoose.connect(process.env.DB_URL, { useNewUrlParser: true });
 
 // Create a Mongoose schema for the data
 const userSchema = new mongoose.Schema({

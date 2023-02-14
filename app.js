@@ -1,5 +1,4 @@
 import express from "express";
-import cors from "cors";
 import {
   createUser,
   findAllUsers,
@@ -17,11 +16,10 @@ import https from 'https'
 import fs from 'fs'
 dotenv.config();
 
-const standardPass = process.env.GENERIC_PASS;
+const standardPass = process.env.STANDARD_PASS;
   
 const app = express();
 app.use(express.json());
-
 
 app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -42,7 +40,7 @@ app.post("/createUser", async (req, res) => {
     if (password.type === "autogen") pass = genPass(5);
     if (password.type === "define") pass = password.pass;
     if (!pass)
-      res.status(400).send({ status: 400, message: "Error on create user" });
+       return res.status(400).send({ status: 400, message: "Error on create user" });
     const user = await createUser(username.toLowerCase(), email, pass);
     res
       .status(201)

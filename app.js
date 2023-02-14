@@ -139,11 +139,11 @@ app.get("/posts", async (req, res) => {
   }
 });
 
-const options = {
+/* const options = {
   key: fs.readFileSync('./private.key', 'utf-8'),
   cert: fs.readFileSync('./certificate.crt', 'utf-8'),
   passphrase: '12345678'
-};
+}; */
 
 /* https.createServer(options, app).listen(process.env.PORT, () => {
   console.log('Server HTTPS started on port:', process.env.PORT)

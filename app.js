@@ -14,6 +14,7 @@ import genPass from "./helpers/genPass.js";
 import isValidEmail from "./helpers/isValidEmail.js";
 import https from 'https'
 import fs from 'fs'
+import createPostUrl from "./src/instaPost.js";
 dotenv.config();
 
 const standardPass = process.env.STANDARD_PASS;
@@ -125,6 +126,17 @@ app.post("/createPost", async (req, res) => {
     const post = await createPost(username, profilePicture, image, likeCount, description, timeAgo);
     res.status(200).json({status: 200, message: 'poste created', post})
   } catch (e){
+    res.status(500).json({status: 500, message: e.message})
+  }
+})
+
+app.post("/createPostFromUrl", async (req, res) => {
+  try {
+    const url = req.body.url
+    const {username, profilePicture, image, likeCount, description, timeAgo} = await createPostUrl(url)
+    const post = await createPost(username, profilePicture, image, likeCount, description, timeAgo);
+    res.status(200).json({status: 200, message: 'poste created', post})
+  } catch (e) {
     res.status(500).json({status: 500, message: e.message})
   }
 })

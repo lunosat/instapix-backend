@@ -12,6 +12,7 @@ const userSchema = new mongoose.Schema({
   balance: Number,
   password: String,
   likedPosts: [String],
+  lastLike: Date
 });
 
 const postSchema = new mongoose.Schema({
@@ -33,7 +34,8 @@ export const createUser = (username, email, password) => {
     email,
     balance: 0.0,
     password,
-    likedPosts: []
+    likedPosts: [],
+    lastLike: new Date
   });
   return user.save();
 };
@@ -60,8 +62,8 @@ export const createPost = (username, profilePicture, image, likeCount, descripti
     likeCount,
     description,
     timeAgo: {
-        type: timeAgo.type,
-        time: timeAgo.time,
+        type: 'minutes',
+        time: Math.floor(Math.random() * 60),
     }
   });
   return user.save();

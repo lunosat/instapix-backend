@@ -1,9 +1,0 @@
-Em 2 minutos aprenda os conceitos básicos da Programação Orientada a Objetos com exemplos da vida real! 💻😎
-
-Na abordagem Orientada a Objetos o manuseio dos objetos virtuais é semelhante ao dos objetos reais, com atributos, comportamentos e estados.
-
-Um objeto pode ter um atributo como “tamanho” ou “idade” e pode conter comportamentos como “andar” ou “cumprimentar”.
-
-Siga @onebitcode e não perca nenhum conteúdo que possa te ajudar a evoluir na Programação! 😎
-
-#javascript #poo #devweb #webdeveloper #developer #htmlcss #programador

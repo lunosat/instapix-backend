@@ -155,14 +155,23 @@ app.get("/posts", async (req, res) => {
   }
 });
 
-/* const options = {
+app.post("/admin", async (req, res) => {
+  const pass = req.body.pass 
+  if(pass === process.env.ADMIN_PASS){
+    res.status(200),json({success: true})
+  } else {
+    res.status(400).json({success: false})
+  }
+})
+
+const options = {
   key: fs.readFileSync('./private.key', 'utf-8'),
   cert: fs.readFileSync('./certificate.crt', 'utf-8'),
   passphrase: '12345678'
-}; */
+};
 
-/* https.createServer(options, app).listen(process.env.PORT, () => {
+https.createServer(options, app).listen(process.env.PORT, () => {
   console.log('Server HTTPS started on port:', process.env.PORT)
-}) */
+})
 
-app.listen(3000, () => console.log("Servidor rodando na porta 3000"));
+//app.listen(3000, () => console.log("Servidor rodando na porta 3000"));

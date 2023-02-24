@@ -26,11 +26,7 @@ def post_info(url):
     except Exception as e:
         print(e)
 
-print(post_info(arguments))
 
-""" post.owner_username,
-    post.owner_profile.profile_pic_url,
-    post.likes,
-    post.caption  """
+
 
 
